@@ -1,0 +1,17 @@
+{
+  "presets": [
+    "@babel/preset-env",
+    [
+      "@babel/preset-react",
+      {
+        "development": true,
+        "runtime": "automatic"
+      }
+    ]
+  ],
+  "plugins": [
+    "@babel/plugin-proposal-class-properties",
+    // para que acepte async/ await
+    "@babel/plugin-transform-runtime"
+  ]
+}
