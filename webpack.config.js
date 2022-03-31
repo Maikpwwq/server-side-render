@@ -26,7 +26,7 @@ module.exports = {
     path: path.resolve(__dirname, 'ssr/public'),
     filename: isDev ? 'assets/app.js' : 'assets/app-[hash].js',
     publicPath: '/',
-    assetModuleFilename: 'assets/[name].[ext]',
+    assetModuleFilename: 'assets/[name][ext]',
   },
   resolve: {
     extensions: ['.js', '.jsx'],
@@ -87,8 +87,17 @@ module.exports = {
         ],
       },
       {
-        test: /\.(png|gif|jpg)$/,
+        test: /\.(png|gif|jpe?g|jpg)$/,
         type: 'asset/resource',
+        // OLD implementation
+        // use: [
+        //   {
+        //     'loader': 'file-loader',
+        //     options: {
+        //       name: 'assets/[hash].[ext]',
+        //     },
+        //   },
+        // ],
       },
     ],
   },
@@ -132,11 +141,12 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: isDev ? 'assets/app.css' : 'assets/app-[hash].css',
     }),
+    //[path][base]
     isDev ?
       () => {} :
       new CompressionWebpackPlugin({
         test: /\.js$|\.css$/,
-        filename: '[path][base].gz',
+        filename: '[path].gz',
       }),
     isDev ? () => {} : new WebpackManifestPlugin(),
     isDev ?

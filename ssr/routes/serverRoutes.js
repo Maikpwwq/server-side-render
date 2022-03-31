@@ -7,7 +7,8 @@ import NotFound from '../../src/containers/NotFound';
 import Player from '../../src/containers/Player';
 
 const serverRoutes = () => {
-  const routes = useRoutes([
+
+  return useRoutes([
     {
       element: <Home />,
       path: '/',
@@ -29,8 +30,6 @@ const serverRoutes = () => {
       element: <NotFound />,
     },
   ]);
-
-  return routes;
 };
 
 export default serverRoutes;

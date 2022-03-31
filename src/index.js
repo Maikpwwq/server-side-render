@@ -8,6 +8,11 @@ import { createBrowserHistory } from 'history';
 import reducer from './reducers/reducers';
 import App from './routes/App';
 
+// This will create context will all data fetched during server side rendering
+// const BroswerDataContext = createBroswerContext();
+{ /* <BroswerDataContext>
+    </BroswerDataContext> */ }
+
 const history = createBrowserHistory();
 console.log(history);
 const preloadedState = window.__PRELOADED_STATE__;

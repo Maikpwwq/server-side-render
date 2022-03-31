@@ -14,7 +14,7 @@ function Carousel({ children }) {
 }
 
 Carousel.propTypes = {
-  children: PropTypes.object,
+  children: PropTypes.array,
 };
 
 export default Carousel;

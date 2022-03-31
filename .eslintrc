@@ -5,7 +5,7 @@
     "es6": true,
     "node": true
   },
-  "extends": ["plugin:react/recommended", "airbnb", "eslint:recommended" ], // 
+  "extends": ["plugin:react/recommended", "airbnb", "eslint:recommended" ],
   "globals": {
     "document": false,
     "escape": false,
@@ -72,7 +72,6 @@
     "func-style": 0,
     "generator-star-spacing": [2, "both"],
     "guard-for-in": 0,
-    // "handle-callback-err": [2, "^(err|error|anySpecificError)$" ], Obsoleto
     // "indent": [2, 2, { "SwitchCase": 1 }],
     "key-spacing": [2, { "beforeColon": false, "afterColon": true }],
     "linebreak-style": 0,
@@ -82,13 +81,11 @@
     "max-params": 0,
     "max-statements": 0,
     "new-cap": [2, { "newIsCap": true, "capIsNew": false }],
-    // "newline-after-var": [0, "never"], Obsoleto
     "new-parens": 2,
     "no-alert": 0,
     "no-array-constructor": 2,
     "no-bitwise": 0,
     "no-caller": 2,
-    // "no-catch-shadow": 0, Obsoleto
     "no-cond-assign": 2,
     "no-console": 0,
     "no-constant-condition": 0,
@@ -119,7 +116,6 @@
       "error",
       { "blankLine": "always", "prev": "*", "next": "return" }
     ],
-    // "no-extra-strict": 0, Replaced by strict
     "no-fallthrough": 2,
     "no-floating-decimal": 2,
     "no-func-assign": 2,
@@ -133,39 +129,29 @@
     "no-lone-blocks": 0,
     "no-lonely-if": 0,
     "no-loop-func": 0,
-    // "no-mixed-requires": 0, Obsoleto
     "no-mixed-spaces-and-tabs": [2, false],
     "no-multi-spaces": 2,
     "no-multi-str": 0,
     "no-multiple-empty-lines": [2, { "max": 1 }],
     // "no-native-reassign": 2,
-    // "no-negated-in-lhs": 2, Obsoleto
     "no-nested-ternary": 0,
     "no-new": 2,
     "no-new-func": 2,
     "no-new-object": 2,
-    // "no-new-require": 2, Obsoleto
     "no-new-wrappers": 2,
     "no-obj-calls": 2,
     "no-octal": 2,
     "no-octal-escape": 2,
-    // "no-path-concat": 0, Obsoleto
     "no-plusplus": 0,
-    // "no-process-env": 0, Obsoleto
-    // "no-process-exit": 0, Obsoleto
     "no-proto": 2,
     "no-redeclare": 2,
     "no-regex-spaces": 2,
-    // "no-reserved-keys": 0, Replaced by	quote-props
-    // "no-restricted-modules": 0, Obsoleto
     "no-script-url": 0,
     "no-self-compare": 2,
     "no-sequences": 2,
     "no-shadow": 0,
     "no-shadow-restricted-names": 2,
-    // "no-spaced-func": 2, Obsoleto
     "no-sparse-arrays": 2,
-    // "no-sync": 0, Obsoleto
     "no-ternary": 0,
     "no-throw-literal": 2,
     "no-trailing-spaces": 2,
@@ -206,13 +192,11 @@
     "react/jsx-pascal-case": 2,
     "react/jsx-sort-prop-types": 0,
     "react/jsx-sort-props": 0,
-    // "react/jsx-uses-react": 2, Obsoleto
     "react/jsx-uses-vars": 2,
     "react/no-did-mount-set-state": 2,
     "react/no-did-update-set-state": 2,
     "react/no-multi-comp": 0,
     "react/no-unknown-property": 2,
-    // "react/prop-types": 0,
     "react/forbid-prop-types": 0,
     "react/prefer-stateless-function": 0,
     "react/require-default-props": 0,
@@ -231,7 +215,6 @@
     "spaced-comment": [0, "always"],
     "strict": 0,
     "use-isnan": 2,
-    // "valid-jsdoc": 0, Obsoleto
     "valid-typeof": 2,
     "vars-on-top": 2,
     "wrap-iife": [2, "any"],
