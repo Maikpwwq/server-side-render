@@ -41,7 +41,6 @@ const setResponse = (html, preloadedState, manifest) => {
 const renderApp = (app) => {
   app.get('*', (req, res) => {
     const store = createStore(reducer, initialState);
-    const preloadedState = store.getState();
     const Routing = serverRoutes;
     // We need to render app twice.
     // First - render App to reqister all effects
@@ -67,7 +66,9 @@ const renderApp = (app) => {
     //     </Provider>
     //   </ServerDataContext>,
     // );
-    res.send(setResponse(html, preloadedState, req.hashManifest));
+    const finalState = store.getState();
+    // console.log('p', finalState.playing);
+    res.send(setResponse(html, finalState, req.hashManifest));
   });
 };
 

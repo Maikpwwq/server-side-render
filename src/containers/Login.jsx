@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-
-import { connect } from 'react-redux';
+import { connect, useStore } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
 import { loginRequest } from '../actions';
 import Header from '../components/Header';
@@ -10,8 +8,9 @@ import googleIcon from '../assets/static/google-icon.png';
 import twitterIcon from '../assets/static/twitter-icon.png';
 
 function Login(props) {
+  const store = useStore();
   const navigate = useNavigate();
-  const { loginARequest = loginRequest } = props;
+  const dispatchAction = loginRequest();
   const [form, setValues] = useState({
     email: '',
   });
@@ -25,7 +24,7 @@ function Login(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    loginARequest(form);
+    store.dispatch(dispatchAction(form));
     navigate('/');
   };
 
@@ -84,10 +83,6 @@ function Login(props) {
     </>
   );
 }
-
-Login.propTypes = {
-  loginARequest: PropTypes.array,
-};
 
 const mapDispatchToProps = {
   loginRequest,

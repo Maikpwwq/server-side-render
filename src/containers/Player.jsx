@@ -1,22 +1,23 @@
 import React from 'react'; //, { useEffect }
 // import PropTypes from 'prop-types';
 import { useNavigate, useParams } from 'react-router-dom';
-import { connect, useSelector, useDispatch } from 'react-redux'; //
+import { connect, useSelector, useStore } from 'react-redux'; // , useDispatch
 import { getVideoSource } from '../actions';
 import '../assets/styles/components/Player.scss';
 import NotFound from './NotFound';
 
 function Player(props) {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const store = useStore();
   const { id } = useParams();
+  // const dispatch = useDispatch();
+  // const dispatchAction = (videoId) => dispatch(getVideoSource(videoId));
+  // dispatchAction(id);
+  const dispatchAction = getVideoSource(id);
+  store.dispatch(dispatchAction);
   const playing = useSelector((state) => state.playing);
-  const dispatchAction = (videoId) => dispatch(getVideoSource(videoId));
-  dispatchAction(id);
-  getVideoSource(id);
-  // const { playing } = props;
   const hasPlaying = Object.keys(playing).length > 0;
-  console.log('-', id, playing, props);
+  console.log(playing);
   // useEffect runs after the render. Doesn’t run on server-side render
   // useEffect(() => {
   //   dispatch(getVideoSource(id));
@@ -29,7 +30,7 @@ function Player(props) {
         <source src={playing.source} type='video/mp4' />
       </video>
       <div className='Player-back'>
-        <button type='button' onClick={() => navigate.goBack()}>
+        <button type='button' onClick={() => navigate(-1)}>
           Regresar
         </button>
       </div>
@@ -38,11 +39,6 @@ function Player(props) {
     <NotFound />
   );
 }
-
-// Player.propTypes = {
-//   playing: PropTypes.object,
-//   getSource: PropTypes.array,
-// };
 
 const mapStateToProps = (state) => {
   return {

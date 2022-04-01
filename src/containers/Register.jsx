@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import { connect, useStore } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
 import Header from '../components/Header';
 import { registerRequest } from '../actions';
@@ -8,7 +7,8 @@ import '../assets/styles/components/Register.scss';
 
 function Register(props) {
   const navigate = useNavigate();
-  const { registerARequest = registerRequest } = props;
+  const store = useStore();
+  const dispatchAction = registerRequest();
 
   const [form, setValues] = useState({
     email: '',
@@ -25,7 +25,7 @@ function Register(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    registerARequest(form);
+    store.dispatch(dispatchAction(form));
     navigate('/');
   };
 
@@ -67,10 +67,6 @@ function Register(props) {
     </>
   );
 }
-
-Register.propTypes = {
-  registerARequest: PropTypes.array,
-};
 
 const mapDispatchToProps = {
   registerRequest,
